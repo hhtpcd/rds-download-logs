@@ -38,5 +38,9 @@ rds-download-logs --database=most-execellent-database --save --output=/backup/lo
 
 # Print all available log names that match prefix
 rds-download-logs --database=most-excellent-database --print --log=slowquery --region=eu-west-1
+
+ Find all matching and download each one
+rds-download-logs --database=most-excellent-database --region=eu-west-1 --log=slowquery --print | xargs -I {} rds-download-logs --database=most-excellent-database --region=eu-west-1 --save --log={}
 ```
+
 
